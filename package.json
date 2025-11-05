@@ -6,13 +6,15 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "playwright": "1.46.1"
-    "cors": "^2.8.5",
-    "uuid": "^9.0.1",
-    "sharp": "^0.33.4"
+    "express": "4.19.2",
+    "playwright": "1.56.0",
+    "cors": "2.8.5",
+    "uuid": "9.0.1",
+    "sharp": "0.33.4"
   }
 }
+
+
 
 
 
