@@ -1,9 +1,10 @@
 FROM mcr.microsoft.com/playwright:v1.48.0-focal
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 COPY . .
 EXPOSE 4000
 CMD ["npm","start"]
+
 
 
