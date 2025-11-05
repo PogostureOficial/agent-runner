@@ -12,7 +12,10 @@ app.use(express.static('public'));
 const sessions = new Map(); // id -> { browser, ctx, page, paused, lastShot }
 
 async function newSession(){
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   const page = await ctx.newPage();
   await page.goto('about:blank');
@@ -163,3 +166,4 @@ app.get('/healthz', (_req,res)=> res.send('ok'));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, ()=> console.log('Agent Runner on :' + PORT));
+
